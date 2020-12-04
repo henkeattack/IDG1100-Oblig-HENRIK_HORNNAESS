@@ -1,0 +1,86 @@
+6. What is the octal representation of a file that can be read and written only by its owner?
+- It is represented by a number between 0 and 7 caleed a Base-8 numbering system.
+7. In UNIX systems, what is the common name of the special user that can access and modify every
+file?
+- Write (w)
+8. Which file permission classes are available in UNIX systems?
+- User, group and others. 
+9. As of 2020, which percentage of servers have UNIX-like OS?
+- 70.6%
+10. The command ssh will:
+- Secure shell that starts the SSH client program. It provides a secure encrypted connection to the SSH server. 
+11. UNIX Command: access your current working directory
+- /nameOfFile.sh and cd / to toggle between files. 
+12. UNIX Command: rename files (give an example)
+- mv hh.txt hh-7.txt
+13. UNIX Command: schedule the execution of programs in the future
+- 0 9 * * * /programs
+14. UNIX Command: Forcefully shutdown the command with process ID 123:
+- kill 123
+15. UNIX Command: access your root user
+- sudo command
+  Password:
+  root
+16. Crontab scheduled: At minute 30 on Sunday.
+- 30 * * * 0
+17. Crontab scheduled: At minute 30 on day-of-month 15.
+- 30 * 15 * * 
+18. Crontab scheduled: At 05:30 on every day-of-week from Sunday through Monday in June.
+- 30 5 * 6 0-6
+19. Script: print your name and date
+- read -p "Please enter your name: " name
+echo "Your name is: " $name
+NOW=$(date +"%d-%m-%y")
+echo $NOW
+20. Script: add two numeric values, print the result
+- read -n "Please enter first number: " num1
+  echo "The first number is: " $num1
+  read -n "Please enter second number: " num2
+  echo "The second number is: " $num2
+21. Script: inputs username, prints “USERNAME stored”
+- read -p "Please enter username: " username
+echo "USERNAME stored"
+22. Script: Store the output of the command “hostname” in a variable. Display “This script is
+running on _.” where “_” is the output of the “hostname” command.
+- hostname = $hostname
+echo “This script is
+running on $hostname where $hostname is the output of the “hostname” command. "
+23. Script: Store the output of the working directory (from where the script is run) in a variable
+then print the variable.
+- pwd 
+  ls -1 /var
+or:
+./ ls -1 /var
+24. Create a step by step tutorial on how to create a cronjob that prints “Task scheduled at” +
+DATE. Cronjob is scheduled every 30 minutes on today’s date (only today).
+- Create a cronjob: crontab -e
+This open a personal crontab. In every line you have now five commands for your cronjob. You can schedule by minute, hour, day in a month, month or day of a week - in that order. Her is an example:
+  30 * * * *
+  Now we want to print the cronjob for todays date only:
+  echo "Task scheduled at $date + "The date is %F ". Cronjob is scheduled every 30 minutes on today's date. "
+  Use of the command %F print the full date of today. 
+
+25. Create a script that takes an input (letter or number) that will display the answer of a question.
+The script should when started list a menu for the user with the different questions that can be
+chosen and which corresponding letter the user will have to give as input to display the answer of
+the desired question. One of the possible inputs the user should be able to make is "q" for quitting
+the script. The menu should also have a default case where all the items is displayed again, or no
+changes is made if the user gives an invalid input. Hint: use a switch case to be able to handle the
+menu. Each option in the menu should lead to an echo of the answer
+#!/bin/bash
+
+read -p "Do you like sports? Type yes or no to continue or q to exit. [yes/no/q]:" choice
+
+case choice in
+  yes)
+    echo "Hell yeah. Sports is life!"
+  ;;
+  no)
+    echo "No? What are you doing with your life"
+  ;;
+  q)
+    "See ya!"
+    exit 
+  *)
+    echo "Sorry, invalid input"
+  ;;
